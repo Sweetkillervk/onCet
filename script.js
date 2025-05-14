@@ -433,7 +433,7 @@ const studentTableBody = document.getElementById('studentTableBody');
 let currentQuiz = 0;
 let score = 0;
 let shuffledQuizData = [];
-let timeLeft = 30;
+let timeLeft = 20;
 let timerInterval;
 
 // Shuffle function
@@ -494,7 +494,7 @@ function loadQuiz() {
   c_text.innerText = currentQuizData.c;
   d_text.innerText = currentQuizData.d;
 
-  timeLeft = 30;
+  timeLeft = 20;
   updateTimer();
   startTimer();
 }
@@ -592,7 +592,7 @@ function resetQuiz() {
   score = 0;
   currentQuiz = 0;
   clearInterval(timerInterval);
-  timerElement.innerText = 'Time: 30s';
+  timerElement.innerText = 'Time: 20s';
 }
 
 // Event Listeners
