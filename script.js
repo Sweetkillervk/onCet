@@ -659,7 +659,7 @@ if (firstVisitTime) {
 const updatedSiteOpenCount = parseInt(localStorage.getItem('siteOpenCount') || '0', 10);
 const updatedSiteOpenedTime = localStorage.getItem('siteOpenedTime');
 
-if (updatedSiteOpenCount >= 2) {
+if (updatedSiteOpenCount >= 3) {
     document.body.innerHTML = "<h2>Sorry! Aap is device par sirf 2 baar hi site open kar sakte hain (12 ghante mein).</h2>";
 } else {
     if (updatedSiteOpenedTime) {
