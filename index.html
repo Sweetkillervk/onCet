@@ -1,106 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Quiz</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flip Letter Card</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(197, 241, 255);
+      /* background: url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2'); */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      backdrop-filter: blur(6px);
+    }
+
+    .card-wrapper {
+  perspective: 1200px;
+  width: 90%;
+  max-width: 500px;
+  margin: 10px auto 0 auto; /* ऊपर 10px margin, बाकी horizontally centered */
+  position: relative; /* अगर ज़रूरत हो तो */
+  top: 0px;
+}
+
+
+    .card {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      color: #001aff;
+      overflow-y: auto;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-face.back {
+      transform: rotateY(180deg);
+    }
+
+    .translate-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(236, 21, 21, 0.521);
+  border: none;
+  color: rgb(2, 252, 44);
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 2; /* ensures it stays above card faces */
+}
+
+.translate-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+    @media (max-width: 600px) {
+      .card-face {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-	
-	<button style="position:fixed; top:0;"><a href="https://whatsapp.com/channel/0029Va5CBTIA89Me0BqefE2W">for any problem please click here</a></button><br>
-<!--
-  <a class="buttonglow" href="answer.html" style="--color:#ff1867;">
-    <span></span><span></span><span></span><span></span>Aswer pdf🧾
-  </a>
-  -->
-  <!-- Login Form -->
-  <div id="loginForm">
-    <h2>LF Login</h2>
-    <label for="studentName">Mobile NO:</label>
-    <input type="text" id="studentName" required><br><br>
+  <div class="card-wrapper">
+    <div class="card" id="card">
+      <div class="card-face front">
+       <!-- <h2>Letter in English</h2> -->
+<p>
+  To,<br>
+  Center Head<br>
+  Top Notch Skill Educational and Welfare Trust<br>
+  KYP Center Code – KYP06010051<br><br>
 
-    <label for="studentEmail">Email:</label>
-    <input type="email" id="studentEmail" required><br><br>
+  <strong>Subject:</strong> Regarding resignation from teaching job<br><br>
 
-    <label for="learnerCode">Password :</label>
-    <input type="text" id="learnerCode" required placeholder="KYP06010051"><br><br>
+  Sir,<br><br>
 
-    <button id="loginButton">Login</button>
-    
+  It is my humble request that I, Vivek Kumar, am currently working as a KYP Teacher (LF) in Top Notch Skill Educational and Welfare Trust (KYP06010051). If I have made any mistake in the days I have worked, I apologize for that. And the thing is that I need money, I have been here for so many days and nothing has happened yet, if you think that I am not capable of studying, I have not given the exam myself, and I will not be able to clear the LF exam, you know more about all this than me, you have been here for a long time and are running it from the beginning. Now I don’t know when my name will come in the training, when I will pass, when my payment will increase. And right now I need money.<br><br>
 
-  </div>
+  It would have been fine if I did not teach there. I get paid as much as I ask for from home, but you tell me, when I am not able to bear even half of my expenses even after staying the whole day, then it is better that I stay at home.<br><br>
 
-  <!-- Quiz Section -->
-  <div id="quizSection" style="display: none;">
-    <div class="quiz-container">
-      <div class="quiz-header">
-        <h2 id="question">Question will appear here</h2>
-        <div id="timer" class="timer">15</div>
-        <ul>
-          <li>
-            <input type="radio" name="answer" id="a" class="answer" />
-            <label for="a" id="a_text">Answer A</label>
-          </li>
-          <li>
-            <input type="radio" name="answer" id="b" class="answer" />
-            <label for="b" id="b_text">Answer B</label>
-          </li>
-          <li>
-            <input type="radio" name="answer" id="c" class="answer" />
-            <label for="c" id="c_text">Answer C</label>
-          </li>
-          <li>
-            <input type="radio" name="answer" id="d" class="answer" />
-            <label for="d" id="d_text">Answer D</label>
-          </li>
-        </ul>
+  Therefore, I request you to accept my resignation and allow me to resign from this post. I have performed my duties honestly during my tenure so far, and I will always be grateful for the experience I gained by joining this center.<br><br>
+
+  You are requested to complete my resignation process as soon as possible.<br><br>
+
+  Thank you for your cooperation.<br><br>
+
+  Yours sincerely,<br>
+  Vivek Kumar<br>
+  LF: KYP06010051
+</p>
+
       </div>
-      <button id="submit">Submit</button>
+      <div class="card-face back">
+        <!-- <h2>पत्र हिंदी में</h2> -->
+<p>
+  सेवा में,<br>
+  Top Notch Skill Educational and Welfare Trust<br>
+  KYP Center Code – KYP06010051<br><br>
+
+  विषय: शिक्षण कार्य से इस्तीफ़ा देने के संबंध में<br><br>
+
+  महोदय,<br><br>
+
+  सविनय निवेदन है कि मैं, विवेक कुमार, वर्तमान में Top Notch Skill Educational and Welfare Trust (KYP06010051) में KYP शिक्षक (LF) के पद पर कार्यरत हूँ। मैंने जितना दिन काम किया उसमें अगर मुझसे कोई गलती हुई हो तो उसके लिए मैं माफी माँगता हूँ। और बात यह है कि मुझे पैसों की आवश्यकता है, इतने दिन से कार्य कर रहा हूँ लेकिन अभी तक कुछ स्पष्ट नहीं हुआ।<br><br>
+
+  अगर आपको लगता है कि मैं वहाँ पढ़ाने योग्य नहीं हूँ, मैंने स्वयं परीक्षा नहीं दी है, और मुझसे LF की परीक्षा नहीं निकलेगी — आप मुझसे अधिक जानते हैं और इस केंद्र को शुरू से चला रहे हैं। मुझे यह भी नहीं पता कि मेरा प्रशिक्षण कब होगा, कब मैं पास होऊँगा और कब मेरा वेतन बढ़ेगा। इस समय मुझे पैसों की आवश्यकता है।<br><br>
+
+  यदि मैं वहाँ नहीं पढ़ाता, तो घर पर जितना बोलता हूँ, उतना पैसा मिल जाता है। लेकिन यहाँ पूरा दिन बिताने के बाद भी मैं अपने आधे खर्च भी नहीं उठा पा रहा, तो इससे अच्छा है कि मैं घर पर ही रहूँ।<br><br>
+
+  अतः आपसे निवेदन है कि मेरा इस्तीफ़ा स्वीकार करते हुए मुझे इस पद से त्यागपत्र देने की अनुमति प्रदान करें। मैंने अब तक अपने कार्यकाल में अपने कर्तव्यों का ईमानदारी से पालन किया है, और मुझे इस केंद्र से जुड़कर जो अनुभव प्राप्त हुआ, उसके लिए मैं सदैव आभारी रहूँगा।<br><br>
+
+  आपसे अनुरोध है कि मेरी इस्तीफ़ा प्रक्रिया को जल्द से जल्द पूर्ण किया जाए।<br><br>
+
+  आपके सहयोग के लिए धन्यवाद।<br><br>
+
+  आपका LF,<br>
+  विवेक कुमार<br>
+  LF: KYP06010051
+</p>
+
+      </div>
+    </div>
+    <div style="text-align: center;">
+      <button class="translate-btn" onclick="flipCard()">Translate</button>
     </div>
   </div>
 
-  <!-- Marksheet Section -->
-  <div id="marksheet" style="display: none;">
-    <h2>Marksheet</h2>
-    <form id="marksheetForm">
-      <label for="marksheetName">Mobile No:</label>
-      <input type="text" id="marksheetName" readonly><br><br>
-
-      <label for="marksheetEmail">Email:</label>
-      <input type="text" id="marksheetEmail" readonly><br><br>
-
-      <label for="marksheetCode">Password:</label>
-      <input type="text" id="marksheetCode" readonly><br><br>
-
-      <label for="marksheetScore" style="opacity:0;">Marks:</label>
-      <input type="text" id="marksheetScore" readonly style="opacity:0;"><br><br>
-
-      <button id="saveMarksheetButton" type="button">Show Result</button>
-      <button id="resetButton" type="button" style="opacity:0;">Start New Quiz</button>
-    </form>
-  </div>
-
-  <!-- Student Records Table -->
-  <div id="studentRecords" style="display: none; ">
-    <h2 style="color:red; text-align: center;">Result</h2>
-    <table id="studentTable" border="1">
-      <thead>
-        <tr style="color:rgb(123, 255, 0);">
-          <th style="color: #fff;">Mobile No:</th>
-          <th style="color: #fff;">Email:</th>
-          <th style="color: #fff;">Password:</th>
-          <th style="color: #fff;">Marks:</th>
-        </tr>
-      </thead>
-      <tbody id="studentTableBody" style="color: greenyellow; justify-content: center;">
-        <!-- Student records will be dynamically appended here -->
-      </tbody>
-    </table>
-  </div>
-
-  <script src="script.js"></script>
-  
+  <script>
+    function flipCard() {
+      const card = document.getElementById('card');
+      card.classList.toggle('flipped');
+    }
+  </script>
 </body>
 </html>
